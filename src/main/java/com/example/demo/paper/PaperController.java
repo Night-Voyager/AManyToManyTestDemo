@@ -34,4 +34,12 @@ public class PaperController {
         paperRepository.save(paper);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
+
+    @GetMapping(path = "/test")
+    @ResponseBody
+    public ResponseEntity<?> test() {
+        Paper paper = paperRepository.findById(3).get();
+
+        return ResponseEntity.ok().build();
+    }
 }

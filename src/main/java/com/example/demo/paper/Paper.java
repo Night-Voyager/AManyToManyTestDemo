@@ -2,6 +2,7 @@ package com.example.demo.paper;
 
 import com.example.demo.keyword.Keyword;
 import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -26,6 +27,7 @@ public class Paper /*implements Serializable*/ {
 //    @Transient
 //    @JsonManagedReference
 //    @JsonBackReference
+    @JsonSerialize(using = KeywordSerializerForPaper.class)
     private Set<Keyword> keywords;
 
 //    @JsonBackReference
