@@ -4,6 +4,8 @@ import com.example.demo.keyword.Keyword;
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -15,6 +17,8 @@ import java.util.Set;
 @EntityListeners(AuditingEntityListener.class)
 @JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 //@JsonIgnoreProperties(value = {"papers"})
+@Setter
+@Getter
 public class Paper /*implements Serializable*/ {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -36,7 +40,7 @@ public class Paper /*implements Serializable*/ {
 //        return keywords;
 //    }
 
-
+/*
     public void setTitle(String title) {
         this.title = title;
     }
@@ -56,4 +60,6 @@ public class Paper /*implements Serializable*/ {
     public Set<Keyword> getKeywords() {
         return keywords;
     }
+
+ */
 }
