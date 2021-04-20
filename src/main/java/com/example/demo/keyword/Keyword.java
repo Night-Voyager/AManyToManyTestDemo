@@ -9,10 +9,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
-@Data
+//@Data
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 //@JsonIgnoreProperties(value = {"keywords"})
 public class Keyword /*implements Serializable*/ {
     @Id
@@ -34,4 +34,25 @@ public class Keyword /*implements Serializable*/ {
 //    public Set<Paper> getPapers() {
 //        return papers;
 //    }
+
+
+    public void setKeyword(String keyword) {
+        this.keyword = keyword;
+    }
+
+    public void setPapers(Set<Paper> papers) {
+        this.papers = papers;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getKeyword() {
+        return keyword;
+    }
+
+    public Set<Paper> getPapers() {
+        return papers;
+    }
 }

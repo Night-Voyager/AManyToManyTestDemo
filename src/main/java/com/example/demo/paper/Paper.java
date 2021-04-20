@@ -10,10 +10,10 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Set;
 
-@Data
+//@Data
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 //@JsonIgnoreProperties(value = {"papers"})
 public class Paper /*implements Serializable*/ {
     @Id
@@ -27,7 +27,7 @@ public class Paper /*implements Serializable*/ {
 //    @Transient
 //    @JsonManagedReference
 //    @JsonBackReference
-    @JsonSerialize(using = KeywordSerializerForPaper.class)
+//    @JsonSerialize(using = KeywordSerializerForPaper.class)
     private Set<Keyword> keywords;
 
 //    @JsonBackReference
@@ -35,4 +35,25 @@ public class Paper /*implements Serializable*/ {
 //    public Set<Keyword> getKeywords() {
 //        return keywords;
 //    }
+
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setKeywords(Set<Keyword> keywords) {
+        this.keywords = keywords;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public Set<Keyword> getKeywords() {
+        return keywords;
+    }
 }
